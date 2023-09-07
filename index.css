@@ -1,0 +1,156 @@
+@font-face {
+    font-family: "General Sans Medium";
+    src: url("GeneralSans-Medium.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "General Sans";
+    src: url("GeneralSans-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #030303;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: "General Sans Medium", sans-serif;
+}
+
+.lander {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 1vw);
+    margin-top: 1vw;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.8vw;
+    font-size: 1rem;
+    line-height: 24px;
+    margin-bottom: 50px;
+    /* font-family: "General Sans", sans-serif; */
+}
+
+.navbar h4 {
+    font-weight: 500;
+}
+
+.menuplus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuplus .plus {
+    font-family: "General Sans", sans-serif;
+    margin-left: 2px;
+    font-size: 12px;
+    /* font-weight: lighter; */
+}
+
+.product {
+    /* font-size: 10.5vw; */
+    font-size: 10.42vw;
+    margin-left: 2.5vw;
+    width: fit-content;
+    text-transform: uppercase;
+    line-height: 10.13vw;
+
+    color: #a3a3a3;
+    font-family: "General Sans Medium", sans-serif;
+}
+
+.designer {
+    /* font-size: 10.5vw; */
+    font-size: 10.42vw;
+    margin-left: 13.5vw;
+    text-transform: uppercase;
+    line-height: 10.13vw;
+    /* line-height: 0.3; */
+    width: fit-content;
+    color: #a3a3a3;
+    font-family: "General Sans Medium", sans-serif;
+}
+
+.toronto {
+    font-size: 1.2vw;
+    text-align: right;
+    line-height: 8;
+    color: #fff;
+
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-top: 0.25rem;
+}
+
+.freelance {
+    text-align: end;
+    text-transform: uppercase;
+    line-height: 2.5;
+    margin-right: 3vw;
+    vertical-align: top;
+}
+
+.footer {
+    display: flex;
+    margin: 0 3vw;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    text-align: center;
+}
+.footerlinks {
+    width: 55vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer p a {
+    display: inline-flex;
+    text-decoration: none;
+    color: #fff;
+
+    text-align: left;
+    align-items: start;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.footer p a {
+    display: block;
+}
+.footer p a span {
+    vertical-align: -0.6em;
+    padding-left: 0.25rem;
+}
+
+.iconset {
+    display: flex;
+    gap: 4px;
+}
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #aaa;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
+
+.iconset .circle i {
+    color: #050505;
+}
+
+@media (min-width: 1280px) {
+    .navbar {
+        font-size: 1.125rem;
+    }
+}
