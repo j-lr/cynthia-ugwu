@@ -123,10 +123,7 @@ body {
     line-height: 1.25rem;
 }
 
-.footer p a {
-    display: block;
-}
-.footer p a span {
+.footer p a span svg {
     vertical-align: -0.6em;
     padding-left: 0.25rem;
 }
@@ -152,5 +149,33 @@ body {
 @media (min-width: 1280px) {
     .navbar {
         font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .footer p a {
+        font-size: 0.74rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .iconset {
+        display: none;
+    }
+
+    .footerlinks {
+        width: 100vw;
+    }
+
+    .footer p a {
+        display: block;
+        font-size: 0.7rem;
+    }
+    .footer p a span {
+        display: block;
+    }
+
+    .footer .nbsp {
+        display: none;
     }
 }
