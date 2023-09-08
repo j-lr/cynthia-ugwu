@@ -34,7 +34,6 @@ body {
     font-size: 1rem;
     line-height: 24px;
     margin-bottom: 50px;
-    /* font-family: "General Sans", sans-serif; */
 }
 
 .navbar h4 {
@@ -51,11 +50,9 @@ body {
     font-family: "General Sans", sans-serif;
     margin-left: 2px;
     font-size: 12px;
-    /* font-weight: lighter; */
 }
 
 .product {
-    /* font-size: 10.5vw; */
     font-size: 10.42vw;
     margin-left: 2.5vw;
     width: fit-content;
@@ -67,26 +64,21 @@ body {
 }
 
 .designer {
-    /* font-size: 10.5vw; */
     font-size: 10.42vw;
     margin-left: 13.5vw;
     text-transform: uppercase;
     line-height: 10.13vw;
-    /* line-height: 0.3; */
     width: fit-content;
     color: #a3a3a3;
     font-family: "General Sans Medium", sans-serif;
 }
 
 .toronto {
-    font-size: 1.2vw;
-    text-align: right;
-    line-height: 8;
-    color: #fff;
-
     font-size: 0.875rem;
     line-height: 1.25rem;
     margin-top: 0.25rem;
+    text-align: right;
+    color: #fff;
 }
 
 .freelance {
@@ -119,6 +111,7 @@ body {
     color: #fff;
 
     text-align: left;
+    justify-content: space-between;
     align-items: start;
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -160,20 +153,21 @@ body {
 }
 
 @media (max-width: 768px) {
+    .toronto {
+        font-size: 0.525rem;
+        line-height: 1.45rem;
+    }
+
+    .freelance {
+        font-size: 0.525rem;
+        line-height: 1.45rem;
+    }
     .iconset {
         display: none;
     }
 
     .footerlinks {
         width: 100vw;
-    }
-
-    .footer p a {
-        display: block;
-        font-size: 0.7rem;
-    }
-    .footer p a span {
-        display: block;
     }
 
     .footer .nbsp {
