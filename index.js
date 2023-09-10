@@ -3,13 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function loadPages() {
-    loadPage("pages/lander.html", "div", "landerpage")
-        .then(function () {
-            loadPage("pages/page1.html", "div", "page1");
-        })
-        .then(function () {
+    loadPage("pages/lander.html", "div", "landerpage").then(function () {
+        loadPage("pages/page1.html", "div", "page1").then(function () {
             loadPage("pages/page2.html", "div", "page2");
         });
+    });
 }
 
 function loadPage(pageUrl, bodyElement, elementID) {
