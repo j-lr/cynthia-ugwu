@@ -1,24 +1,3 @@
-@font-face {
-    font-family: "General Sans Medium";
-    src: url("GeneralSans-Medium.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: "General Sans";
-    src: url("GeneralSans-Regular.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-}
-body {
-    margin: 0px;
-    padding: 0px;
-    background-color: #030303;
-    box-sizing: border-box;
-    color: #fff;
-    font-family: "General Sans Medium", sans-serif;
-}
-
 .lander {
     display: flex;
     flex-direction: column;

@@ -1,0 +1,31 @@
+/* describes global styles */
+
+@font-face {
+  font-family: "General Sans Medium";
+  src: url("font/GeneralSans-Medium.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("font/GeneralSans-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #030303;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: "General Sans Medium", sans-serif;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  scrollbar-width: 100px;
+}

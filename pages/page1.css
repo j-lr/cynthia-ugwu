@@ -1,0 +1,31 @@
+#page1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: fit-content;
+  margin-top: 1vw;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 8vw;
+}
+
+.row h1 {
+  font-size: 7.29vw;
+  font-weight: normal;
+  margin-left: 2.5vw;
+  width: fit-content;
+  text-transform: uppercase;
+  line-height: 10.13vw;
+
+  color: #a3a3a3;
+}
+.row h6 {
+  font-family: "General Sans ", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
