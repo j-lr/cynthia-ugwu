@@ -2,38 +2,48 @@ document.addEventListener("DOMContentLoaded", function () {
     loadPages();
 });
 
-function loadPages() {
-    loadPage("pages/lander.html", "div", "landerpage").then(function () {
-        loadPage("pages/page1.html", "div", "page1").then(function () {
-            loadPage("pages/page2.html", "div", "page2");
-        });
-    });
+async function loadPages() {
+    try {
+        await loadPage("pages/lander.html", "div", "landerpage");
+    } catch (e) {
+        console.log(e);
+    }
+    try {
+        await loadPage("pages/page1.html", "div", "page1");
+    } catch (e) {
+        console.log(e);
+    }
+    try {
+        await loadPage("pages/page2.html", "div", "page2");
+    } catch (e) {
+        console.log(e);
+    }
 }
 
-function loadPage(pageUrl, bodyElement, elementID) {
-    return fetchHtmlPage(pageUrl).then(function (html) {
-        const element = document.createElement(bodyElement);
+async function loadPage(pageUrl, htmlElement, elementID) {
+    try {
+        const html = await fetchHtmlPage(pageUrl);
+        const element = document.createElement(htmlElement);
         element.id = elementID;
         element.innerHTML = html;
         document.body.appendChild(element);
-    });
+    } catch (err) {
+        throw err;
+    }
 }
 
-function fetchHtmlPage(page) {
-    return fetch(page)
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error(
-                    `Failed to fetch html page ${page} with response status code ${response.status} 
+async function fetchHtmlPage(page) {
+    try {
+        const response = await fetch(page);
+        if (!response.ok) {
+            throw new Error(
+                `Failed to fetch html page ${page} with response status code ${response.status} 
                     and response status : ${response.statusText}`
-                );
-            }
-            return response.text();
-        })
-        .then(function (pageContent) {
-            return pageContent;
-        })
-        .catch(function (err) {
-            throw err;
-        });
+            );
+        }
+        const pageContent = await response.text();
+        return pageContent;
+    } catch (err) {
+        throw err;
+    }
 }
