@@ -1,155 +1,154 @@
 .lander {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: calc(100vh - 1vw);
-    margin-top: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding-top: 1vw;
 }
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2.8vw;
-    font-size: 1rem;
-    line-height: 24px;
-    margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.8vw;
+  font-size: 1rem;
+  line-height: 24px;
+  margin-bottom: 50px;
 }
 
 .navbar h4 {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .menuplus {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menuplus .plus {
-    font-family: "General Sans", sans-serif;
-    margin-left: 2px;
-    font-size: 12px;
+  font-family: "General Sans", sans-serif;
+  margin-left: 2px;
+  font-size: 12px;
 }
 
 .product {
-    font-size: 10.42vw;
-    margin-left: 2.5vw;
-    width: fit-content;
-    text-transform: uppercase;
-    line-height: 10.13vw;
+  font-size: 10.42vw;
+  margin-left: 2.5vw;
+  width: fit-content;
+  text-transform: uppercase;
+  line-height: 10.13vw;
 
-    color: #a3a3a3;
-    font-family: "General Sans Medium", sans-serif;
+  color: #a3a3a3;
+  font-family: "General Sans Medium", sans-serif;
 }
 
 .designer {
-    font-size: 10.42vw;
-    margin-left: 13.5vw;
-    text-transform: uppercase;
-    line-height: 10.13vw;
-    width: fit-content;
-    color: #a3a3a3;
-    font-family: "General Sans Medium", sans-serif;
+  font-size: 10.42vw;
+  margin-left: 13.5vw;
+  text-transform: uppercase;
+  line-height: 10.13vw;
+  width: fit-content;
+  color: #a3a3a3;
+  font-family: "General Sans Medium", sans-serif;
 }
 
 .toronto {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    margin-top: 0.25rem;
-    text-align: right;
-    color: #fff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-top: 0.25rem;
+  text-align: right;
+  color: #fff;
 }
 
 .freelance {
-    text-align: end;
-    text-transform: uppercase;
-    margin-right: 3vw;
-    vertical-align: top;
-    font-size: 0.825rem;
-    line-height: 1.25rem;
+  text-align: end;
+  text-transform: uppercase;
+  margin-right: 3vw;
+  vertical-align: top;
+  font-size: 0.825rem;
+  line-height: 1.25rem;
 }
-
 .footer {
-    display: flex;
-    margin: 0 3vw;
-    justify-content: space-between;
-    align-items: center;
-    text-transform: uppercase;
-    text-align: center;
+  display: flex;
+  margin: 0 3vw;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  text-align: center;
 }
 .footerlinks {
-    width: 55vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 55vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer p a {
-    display: inline-flex;
-    text-decoration: none;
-    color: #fff;
+  display: inline-flex;
+  text-decoration: none;
+  color: #fff;
 
-    text-align: left;
-    justify-content: space-between;
-    align-items: start;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+  text-align: left;
+  justify-content: space-between;
+  align-items: start;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .footer p a span svg {
-    vertical-align: -0.6em;
-    padding-left: 0.25rem;
+  vertical-align: -0.6em;
+  padding-left: 0.25rem;
 }
 
 .iconset {
-    display: flex;
-    gap: 4px;
+  display: flex;
+  gap: 4px;
 }
 .circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #aaa;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #aaa;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
 }
 
 .iconset .circle i {
-    color: #050505;
+  color: #050505;
 }
 
 @media (min-width: 1280px) {
-    .navbar {
-        font-size: 1.125rem;
-    }
+  .navbar {
+    font-size: 1.125rem;
+  }
 }
 
 @media (max-width: 1024px) {
-    .footer p a {
-        font-size: 0.74rem;
-    }
+  .footer p a {
+    font-size: 0.74rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .toronto {
-        font-size: 0.525rem;
-        line-height: 1.45rem;
-    }
+  .toronto {
+    font-size: 0.525rem;
+    line-height: 1.45rem;
+  }
 
-    .freelance {
-        font-size: 0.525rem;
-        line-height: 1.45rem;
-    }
-    .iconset {
-        display: none;
-    }
+  .freelance {
+    font-size: 0.525rem;
+    line-height: 1.45rem;
+  }
+  .iconset {
+    display: none;
+  }
 
-    .footerlinks {
-        width: 100vw;
-    }
+  .footerlinks {
+    width: 94vw;
+  }
 
-    .footer .nbsp {
-        display: none;
-    }
+  .footer .nbsp {
+    display: none;
+  }
 }
