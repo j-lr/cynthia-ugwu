@@ -1,0 +1,71 @@
+.menuhovereffect {
+  position: relative;
+  color: #fff;
+}
+
+.menuhovereffect::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  transform: scaleX(0);
+  height: 0.7px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.menuhovereffect:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.footerhovereffect {
+  position: relative;
+  color: #fff;
+}
+
+.footerhovereffect::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 0.7px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.35s ease-out;
+}
+
+.footerhovereffect:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.footerhovereffect svg {
+  transform: rotate(0deg);
+  transition: transform 0.35s ease-out;
+}
+
+.footerhovereffect:hover svg {
+  transform: rotate(30deg);
+}
+
+.footerhovereffect svg::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 0.7px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.footerhovereffect svg:hover::after {
+  transform: scaleX(2);
+  transform-origin: bottom left;
+}
