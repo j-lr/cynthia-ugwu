@@ -6,7 +6,7 @@
 .menuhovereffect::after {
   content: "";
   position: absolute;
-  width: 120%;
+  width: 104%;
   transform: scaleX(0);
   height: 0.7px;
   bottom: 0;

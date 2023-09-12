@@ -18,17 +18,31 @@
 .navbar h4 {
   font-weight: 500;
 }
-
-.menuplus {
+.menu {
   display: flex;
   justify-content: center;
   align-items: center;
+  vertical-align: top;
 }
 
-.menuplus .plus {
-  font-family: "General Sans", sans-serif;
-  margin-left: 2px;
+.menutext {
+  font-size: 15px;
+  font-family: "General Sans Medium", sans-serif;
+}
+.menuplus {
   font-size: 12px;
+  font-family: "General Sans ", sans-serif;
+}
+.menu button {
+  height: min-fitcontent;
+  background-color: transparent;
+  color: #fff;
+  border: 0 solid transparent;
+  height: fit-content;
+  padding: 0px;
+  margin: 2px;
+  text-align: center;
+  vertical-align: center;
 }
 
 .product {
