@@ -45,6 +45,16 @@
   vertical-align: center;
 }
 
+#mouseCircle {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: 99;
+  position: absolute;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1);
+}
+
 .product {
   font-size: 10.42vw;
   margin-left: 2.5vw;

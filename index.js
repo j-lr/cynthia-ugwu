@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     loadPages();
+
+    window.addEventListener("mousemove", function (e) {
+        // mouseCircle is already loaded while fetching page
+        if (mouseCircle) {
+            mouseCircle.style.transform = `translate(${e.clientX}px, 
+            ${e.clientY}px)`;
+        }
+    });
 });
 
 async function loadPages() {
