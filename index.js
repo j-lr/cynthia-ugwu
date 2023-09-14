@@ -1,18 +1,13 @@
+"use strict";
+
 document.addEventListener("DOMContentLoaded", function () {
     loadPages();
-
-    window.addEventListener("mousemove", function (e) {
-        // mouseCircle is already loaded while fetching page
-        if (mouseCircle) {
-            mouseCircle.style.transform = `translate(${e.clientX}px, 
-            ${e.clientY}px)`;
-        }
-    });
 });
 
 async function loadPages() {
     try {
         await loadPage("pages/lander.html", "div", "landerpage");
+        onLanderPageLoaded();
     } catch (e) {
         console.log(e);
     }
@@ -54,4 +49,93 @@ async function fetchHtmlPage(page) {
     } catch (err) {
         throw err;
     }
+}
+
+function onLanderPageLoaded() {
+    window.addEventListener("mousemove", function (e) {
+        if (mouseCircle) {
+            mouseCircle.style.transform = `translate(${e.clientX}px, 
+            ${e.clientY}px)`;
+            mouseCircle.style.display = "block";
+        }
+    });
+
+    const tl = gsap.timeline({
+        onStart: () => {
+            document.querySelector(".product").style.opacity = 1;
+            document.querySelector(".designer").style.opacity = 1;
+        },
+        onComplete: () => {
+            onProductDesignerAnimComplete();
+        },
+    });
+
+    tl.from(".product", {
+        yPercent: 100,
+        duration: 1.25,
+        "--landerPageClip": "50% ",
+    });
+    tl.from(".designer", {
+        yPercent: 100,
+        duration: 0.95,
+        delay: -0.81,
+        "--landerPageClip": "100% ",
+    });
+}
+
+function onProductDesignerAnimComplete() {
+    const translationDuration = 1.25;
+    const torontoTranslationDuration = 1.25;
+    const tl = gsap.timeline({
+        onStart: () => {
+            document.querySelector(".navbar").style.opacity = 1;
+        },
+    });
+    tl.to(".toronto", {
+        opacity: 1,
+        duration: 2,
+    });
+    tl.from(
+        ".toronto",
+        {
+            yPercent: 100,
+            duration: torontoTranslationDuration,
+            landerPageClip: "100% ",
+            ease: "power2.inOut",
+        },
+        "<"
+    );
+    tl.to(".footer", {
+        opacity: 1,
+        duration: 2,
+    });
+    tl.from(
+        ".navbar",
+        {
+            yPercent: -100,
+            duration: translationDuration,
+            "--landerPageClip": "100% ",
+            ease: "power2.inOut",
+        },
+        "<"
+    );
+
+    tl.from(
+        ".freelance",
+        {
+            yPercent: -100,
+            duration: translationDuration,
+            "--landerPageClip": "100% ",
+            ease: "power2.inOut",
+        },
+        "<"
+    );
+    tl.to(
+        ".freelance",
+        {
+            opacity: 1,
+            duration: 1.25,
+        },
+        "<"
+    );
 }

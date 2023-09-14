@@ -13,16 +13,21 @@
   font-size: 1rem;
   line-height: 24px;
   margin-bottom: 50px;
+  opacity: 0;
 }
 
 .navbar h4 {
   font-weight: 500;
+  -clip: -0%;
+  clip-path: inset(var(--landerPageClip) 0 0 0);
 }
 .menu {
   display: flex;
   justify-content: center;
   align-items: center;
   vertical-align: top;
+  -clip: -0%;
+  clip-path: inset(var(--landerPageClip) 0 0 0);
 }
 
 .menutext {
@@ -46,6 +51,7 @@
 }
 
 #mouseCircle {
+  display: none;
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
@@ -61,9 +67,11 @@
   width: fit-content;
   text-transform: uppercase;
   line-height: 10.13vw;
-
   color: #a3a3a3;
   font-family: "General Sans Medium", sans-serif;
+  --clip: 0%;
+  clip-path: inset(0 0 var(--landerPageClip) 0);
+  opacity: 0;
 }
 
 .designer {
@@ -74,6 +82,9 @@
   width: fit-content;
   color: #a3a3a3;
   font-family: "General Sans Medium", sans-serif;
+  --clip: -0%;
+  clip-path: inset(0 0 var(--landerPageClip) 0);
+  opacity: 0;
 }
 
 .toronto {
@@ -82,6 +93,7 @@
   margin-top: 0.25rem;
   text-align: right;
   color: #fff;
+  opacity: 0;
 }
 
 .freelance {
@@ -91,6 +103,7 @@
   vertical-align: top;
   font-size: 0.825rem;
   line-height: 1.25rem;
+  opacity: 0;
 }
 .footer {
   display: flex;
@@ -100,6 +113,7 @@
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 1vh;
+  opacity: 0;
 }
 .footerlinks {
   width: 55vw;
