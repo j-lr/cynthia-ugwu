@@ -56,7 +56,7 @@
   height: 0.75rem;
   border-radius: 50%;
   background-color: #fff;
-  z-index: 99;
+  z-index: var(--z-index-mouse-circle);
   position: absolute;
   transition: all cubic-bezier(0.19, 1, 0.22, 1);
 }

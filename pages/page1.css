@@ -23,6 +23,16 @@
 
   color: #a3a3a3;
 }
+
+.page1img {
+  position: absolute;
+  width: 32.08vw;
+  height: 24.23vw;
+  display: none;
+  z-index: var(--z-index-page1-img);
+  transition: all linear;
+}
+
 .row h6 {
   font-family: "General Sans", sans-serif;
   font-size: 0.875rem;
