@@ -1,5 +1,9 @@
 /* describes global styles */
 
+:root {
+  --z-index-page1-img: 100;
+  --z-index-mouse-circle: 1000;
+}
 @font-face {
   font-family: "General Sans Medium";
   src: url("font/GeneralSans-Medium.otf") format("opentype");
