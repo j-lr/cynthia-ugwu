@@ -113,11 +113,7 @@ function onPage1Loaded() {
             e.clientY <= row0Rect.bottom
         ) {
             onPlugHoverEnter();
-            // const transY = e.clientY - row0Rect.top - plugRect.height;
-            const transY = Math.min(
-                e.clientY - plugRect.height,
-                (row0Rect.bottom - row0Rect.top) / 2
-            );
+            const transY = e.clientY - row0Rect.top - plugRect.height;
             plugImg.style.transform = `translate(${e.clientX}px,${transY}px)`;
         } else {
             onPlugHoverLeave();
@@ -129,11 +125,7 @@ function onPage1Loaded() {
             e.clientY <= row1Rect.bottom
         ) {
             onIxperienceHoverEnter();
-            // const transY = e.clientY - row1Rect.top - ixperienceRect.height;
-            const transY = Math.min(
-                e.clientY - ixperienceRect.height,
-                (row1Rect.bottom - row1Rect.top) / 2
-            );
+            const transY = e.clientY - row1Rect.top - ixperienceRect.height;
             ixperienceImg.style.transform = `translate(${e.clientX}px,${transY}px)`;
         } else {
             onIxperienceHoverLeave();
@@ -145,12 +137,7 @@ function onPage1Loaded() {
             e.clientY <= row2Rect.bottom
         ) {
             onHuduHoverEnter();
-            // const transY = e.clientY - row2Rect.top - huduRect.height;
-            let transY = Math.min(
-                e.clientY - huduRect.height,
-                (row2Rect.bottom - row2Rect.top) / 2
-            );
-            // transY = Math.max(transY, row2Rect.top);
+            const transY = e.clientY - row2Rect.top - huduRect.height;
             huduImg.style.transform = `translate(${e.clientX}px,${transY}px)`;
         } else {
             onHuduHoverLeave();
