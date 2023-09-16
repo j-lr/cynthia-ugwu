@@ -10,7 +10,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: 2vw;
   margin-right: 8vw;
+  border-bottom: 1.8px solid rgb(81, 81, 81);
+  text-decoration: none;
+}
+
+.row :hover {
+  opacity: 0.5;
 }
 
 .row h1 {
@@ -22,15 +29,20 @@
   line-height: 10.13vw;
 
   color: #a3a3a3;
+  transition-duration: 650ms;
 }
 
-.page1img {
+.page1-img {
   position: absolute;
   width: 32.08vw;
   height: 24.23vw;
-  display: none;
   z-index: var(--z-index-page1-img);
-  transition: all linear;
+  opacity: 0;
+  transition-property: opacity;
+}
+.page1-img-visible {
+  opacity: 1;
+  transition-duration: 630ms;
 }
 
 .row h6 {
@@ -38,4 +50,5 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 400;
+  transition-duration: 650ms;
 }

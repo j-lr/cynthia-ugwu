@@ -31,6 +31,12 @@ function onPage1Loaded() {
     const ixperienceImg = document.getElementById("ixperienceImg");
     const row2 = document.getElementById("row2");
     const huduImg = document.getElementById("huduImg");
+    const plugText = document.getElementById("plugText");
+    const ixperienceText = document.getElementById("ixperienceText");
+    const huduText = document.getElementById("huduText");
+    const plugYear = document.getElementById("plugYear");
+    const ixperienceYear = document.getElementById("ixperienceYear");
+    const huduYear = document.getElementById("huduYear");
 
     if (
         row0 == null ||
@@ -38,88 +44,105 @@ function onPage1Loaded() {
         row2 == null ||
         plugImg == null ||
         ixperienceImg == null ||
-        huduImg == null
+        huduImg == null ||
+        plugText == null ||
+        ixperienceText == null ||
+        huduText == null ||
+        plugYear == null ||
+        ixperienceYear == null ||
+        huduYear == null
     ) {
         console.error(
-            "All elements required for Page1 animations not found in DOM "
+            "All elements required for Page1 animations not found in DOM, so animations won't work "
         );
         return;
     }
+    const textTranslateXOnHover = 3.8; // vw unit
 
-    if (row0 && plugImg) {
-        function onPlugHoverEnter() {
-            plugImg.style.display = "block";
-            ixperienceImg.style.display = "none";
-            huduImg.style.display = "none";
-        }
-
-        function onPlugHoverLeave() {
-            plugImg.style.display = "none";
-        }
-        function onIxperienceHoverEnter() {
-            plugImg.style.display = "none";
-            ixperienceImg.style.display = "block";
-            huduImg.style.display = "none";
-        }
-
-        function onIxperienceHoverLeave() {
-            ixperienceImg.style.display = "none";
-        }
-        function onHuduHoverEnter() {
-            plugImg.style.display = "none";
-            ixperienceImg.style.display = "none";
-            huduImg.style.display = "block";
-        }
-
-        function onHuduHoverLeave() {
-            huduImg.style.display = "none";
-        }
-
-        window.addEventListener("mousemove", (e) => {
-            const row0Rect = row0.getBoundingClientRect();
-            const plugRect = plugImg.getBoundingClientRect();
-            const row1Rect = row1.getBoundingClientRect();
-            const ixperienceRect = ixperienceImg.getBoundingClientRect();
-            const row2Rect = row2.getBoundingClientRect();
-            const huduRect = huduImg.getBoundingClientRect();
-            if (
-                e.clientX >= row0Rect.left &&
-                e.clientX <= row0Rect.right &&
-                e.clientY >= row0Rect.top &&
-                e.clientY <= row0Rect.bottom
-            ) {
-                onPlugHoverEnter();
-                const transY = e.clientY - row0Rect.top - plugRect.height;
-                plugImg.style.transform = `translate(${e.clientX}px,${transY}px)`;
-            } else {
-                onPlugHoverLeave();
-            }
-            if (
-                e.clientX >= row1Rect.left &&
-                e.clientX <= row1Rect.right &&
-                e.clientY >= row1Rect.top &&
-                e.clientY <= row1Rect.bottom
-            ) {
-                onIxperienceHoverEnter();
-                const transY = e.clientY - row1Rect.top - ixperienceRect.height;
-                ixperienceImg.style.transform = `translate(${e.clientX}px,${transY}px)`;
-            } else {
-                onIxperienceHoverLeave();
-            }
-            if (
-                e.clientX >= row2Rect.left &&
-                e.clientX <= row2Rect.right &&
-                e.clientY >= row2Rect.top &&
-                e.clientY <= row2Rect.bottom
-            ) {
-                onHuduHoverEnter();
-                const transY = e.clientY - row2Rect.top - huduRect.height;
-                huduImg.style.transform = `translate(${e.clientX}px,${transY}px)`;
-            } else {
-                onHuduHoverLeave();
-            }
-        });
+    function onPlugHoverEnter() {
+        plugText.style.opacity = 0.5;
+        plugYear.style.opacity = 0.5;
+        plugText.style.transform = `translate(${textTranslateXOnHover}vw,${0}px)`;
+        plugImg.classList.add("page1-img-visible");
     }
+
+    function onPlugHoverLeave() {
+        plugText.style.opacity = 1;
+        plugYear.style.opacity = 1;
+        plugText.style.transform = `translate(${0}px,${0}px)`;
+        plugImg.classList.remove("page1-img-visible");
+    }
+    function onIxperienceHoverEnter() {
+        ixperienceText.style.opacity = 0.5;
+        ixperienceYear.style.opacity = 0.5;
+        ixperienceText.style.transform = `translate(${textTranslateXOnHover}vw,${0}px)`;
+        ixperienceImg.classList.add("page1-img-visible");
+    }
+
+    function onIxperienceHoverLeave() {
+        ixperienceText.style.opacity = 1;
+        ixperienceYear.style.opacity = 1;
+        ixperienceImg.classList.remove("page1-img-visible");
+        ixperienceText.style.transform = `translate(${0}px,${0}px)`;
+    }
+    function onHuduHoverEnter() {
+        huduText.style.opacity = 0.5;
+        huduYear.style.opacity = 0.5;
+        huduText.style.transform = `translate(${textTranslateXOnHover}vw,${0}px)`;
+        huduImg.classList.add("page1-img-visible");
+    }
+
+    function onHuduHoverLeave() {
+        huduText.style.opacity = 1;
+        huduYear.style.opacity = 1;
+        huduImg.classList.remove("page1-img-visible");
+        huduText.style.transform = `translate(${0}px,${0}px)`;
+    }
+
+    window.addEventListener("mousemove", (e) => {
+        const row0Rect = row0.getBoundingClientRect();
+        const plugRect = plugImg.getBoundingClientRect();
+        const row1Rect = row1.getBoundingClientRect();
+        const ixperienceRect = ixperienceImg.getBoundingClientRect();
+        const row2Rect = row2.getBoundingClientRect();
+        const huduRect = huduImg.getBoundingClientRect();
+        if (
+            e.clientX >= row0Rect.left &&
+            e.clientX <= row0Rect.right &&
+            e.clientY >= row0Rect.top &&
+            e.clientY <= row0Rect.bottom
+        ) {
+            onPlugHoverEnter();
+            const transY = e.clientY - row0Rect.top - plugRect.height;
+            plugImg.style.transform = `translate(${e.clientX}px,${transY}px)`;
+        } else {
+            onPlugHoverLeave();
+        }
+        if (
+            e.clientX >= row1Rect.left &&
+            e.clientX <= row1Rect.right &&
+            e.clientY >= row1Rect.top &&
+            e.clientY <= row1Rect.bottom
+        ) {
+            onIxperienceHoverEnter();
+            const transY = e.clientY - row1Rect.top - ixperienceRect.height;
+            ixperienceImg.style.transform = `translate(${e.clientX}px,${transY}px)`;
+        } else {
+            onIxperienceHoverLeave();
+        }
+        if (
+            e.clientX >= row2Rect.left &&
+            e.clientX <= row2Rect.right &&
+            e.clientY >= row2Rect.top &&
+            e.clientY <= row2Rect.bottom
+        ) {
+            onHuduHoverEnter();
+            const transY = e.clientY - row2Rect.top - huduRect.height;
+            huduImg.style.transform = `translate(${e.clientX}px,${transY}px)`;
+        } else {
+            onHuduHoverLeave();
+        }
+    });
 }
 
 async function loadPage(pageUrl, htmlElement, elementID) {
