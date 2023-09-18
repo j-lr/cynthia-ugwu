@@ -24,6 +24,27 @@ async function loadPages() {
     }
 }
 
+function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+}
+
+function transformHoverImage(hoverImg) {
+    const tl = gsap.timeline();
+    tl.to(hoverImg.img, {
+        translateX: hoverImg.transX,
+        translateY: hoverImg.transY,
+        duration: 0.55,
+    });
+    tl.to(
+        hoverImg.img,
+        {
+            rotate: hoverImg.rotateAngle,
+            duration: 0.97,
+        },
+        "<"
+    );
+}
+
 function onPage1Loaded() {
     const row0 = document.getElementById("row0");
     const plugImg = document.getElementById("plugImg");
@@ -57,7 +78,6 @@ function onPage1Loaded() {
         );
         return;
     }
-    const textTranslateXOnHover = 3.8; // vw unit
 
     function onPlugHoverEnter() {
         plugText.style.opacity = 0.5;
@@ -99,13 +119,55 @@ function onPage1Loaded() {
         huduText.style.transform = `translate(${0}px,${0}px)`;
     }
 
+    function manageHoverImageScrollAnimation(
+        angle,
+        imageElement,
+        transX,
+        transY
+    ) {
+        if (prevAnglePositive && angle < 0) {
+            // direction changed, change angle direction
+            hoverImg.img = imageElement;
+            hoverImg.rotateAngle = -hoverImg.rotateAngle;
+            hoverImg.transX = transX;
+            hoverImg.transY = transY;
+
+            transformHoverImage(hoverImg);
+        } else {
+            hoverImg.img = imageElement;
+            hoverImg.rotateAngle = angle;
+            hoverImg.transX = transX;
+            hoverImg.transY = transY;
+
+            transformHoverImage(hoverImg);
+        }
+    }
+
+    const textTranslateXOnHover = 3.8; // vw unit
+
+    let prevMouseX = 0;
+    let prevMouseY = 0;
+    const maxAngle = 8;
+    let deltaX = 0;
+    let timer;
+    let angle = 0;
+    let prevAnglePositive = false;
+    let hoverImg = {
+        img: ixperienceImg,
+        rotateAngle: 0,
+        transX: 0,
+        transY: 0,
+    };
     window.addEventListener("mousemove", (e) => {
+        clearTimeout(timer);
         const row0Rect = row0.getBoundingClientRect();
         const plugRect = plugImg.getBoundingClientRect();
         const row1Rect = row1.getBoundingClientRect();
         const ixperienceRect = ixperienceImg.getBoundingClientRect();
         const row2Rect = row2.getBoundingClientRect();
         const huduRect = huduImg.getBoundingClientRect();
+        if (prevMouseX == 0) prevMouseX = e.clientX;
+        if (prevMouseY == 0) prevMouseY = e.clientY;
         if (
             e.clientX >= row0Rect.left &&
             e.clientX <= row0Rect.right &&
@@ -114,7 +176,10 @@ function onPage1Loaded() {
         ) {
             onPlugHoverEnter();
             const transY = e.clientY - row0Rect.top - plugRect.height;
-            plugImg.style.transform = `translate(${e.clientX}px,${transY}px)`;
+            deltaX = e.clientX - prevMouseX;
+            angle = clamp(deltaX / 20, -maxAngle, maxAngle);
+            manageHoverImageScrollAnimation(angle, plugImg, e.clientX, transY);
+            prevAnglePositive = angle >= 0;
         } else {
             onPlugHoverLeave();
         }
@@ -126,7 +191,15 @@ function onPage1Loaded() {
         ) {
             onIxperienceHoverEnter();
             const transY = e.clientY - row1Rect.top - ixperienceRect.height;
-            ixperienceImg.style.transform = `translate(${e.clientX}px,${transY}px)`;
+            deltaX = e.clientX - prevMouseX;
+            angle = clamp(deltaX / 20, -maxAngle, maxAngle);
+            manageHoverImageScrollAnimation(
+                angle,
+                ixperienceImg,
+                e.clientX,
+                transY
+            );
+            prevAnglePositive = angle >= 0;
         } else {
             onIxperienceHoverLeave();
         }
@@ -138,10 +211,19 @@ function onPage1Loaded() {
         ) {
             onHuduHoverEnter();
             const transY = e.clientY - row2Rect.top - huduRect.height;
-            huduImg.style.transform = `translate(${e.clientX}px,${transY}px)`;
+            deltaX = e.clientX - prevMouseX;
+            angle = clamp(deltaX / 20, -maxAngle, maxAngle);
+            manageHoverImageScrollAnimation(angle, huduImg, e.clientX, transY);
+            prevAnglePositive = angle >= 0;
         } else {
             onHuduHoverLeave();
         }
+
+        timer = setTimeout(() => {
+            prevMouseX = e.clientX;
+            hoverImg.rotateAngle = 0;
+            transformHoverImage(hoverImg);
+        }, 40);
     });
 }
 
