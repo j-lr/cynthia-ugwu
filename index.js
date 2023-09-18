@@ -29,6 +29,8 @@ function clamp(value, min, max) {
 }
 
 function transformHoverImage(hoverImg) {
+    console.log(hoverImg);
+
     const tl = gsap.timeline();
     tl.to(hoverImg.img, {
         translateX: hoverImg.transX,
@@ -220,6 +222,7 @@ function onPage1Loaded() {
         }
 
         timer = setTimeout(() => {
+            console.log("mouse stopped moving");
             prevMouseX = e.clientX;
             hoverImg.rotateAngle = 0;
             transformHoverImage(hoverImg);
