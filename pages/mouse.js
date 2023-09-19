@@ -16,7 +16,8 @@ let throttleY = 0;
 let prevThrottleX = 0;
 let prevThrottleY = 0;
 let insideThrottle = false;
-window.addEventListener("mousemove", function (e) {
+
+function onMouseMove(e) {
   if (!mouseCircle) return;
 
   const posX = e.clientX + window.scrollX;
@@ -62,7 +63,8 @@ window.addEventListener("mousemove", function (e) {
       rotateY: 0,
     });
   }, 40);
-});
+}
+window.addEventListener("mousemove", onMouseMove);
 
 function calculateAngle(x1, y1, x2, y2) {
   // Calculate the angle in radians
