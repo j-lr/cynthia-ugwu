@@ -52,13 +52,14 @@
 
 #mouseCircle {
   display: none;
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 0.85rem;
+  height: 0.85rem;
   border-radius: 50%;
   background-color: #fff;
   z-index: var(--z-index-mouse-circle);
   position: absolute;
   transition: all cubic-bezier(0.19, 1, 0.22, 1);
+  transition-timing-function: step-end;
 }
 
 .product {
