@@ -1,9 +1,9 @@
 "use strict";
 
 import { clamp } from "../utils.js";
-let prevMoveX = 0,
-  prevMoveY = 0,
-  scaleX = 0;
+let prevMoveX = 0;
+let prevMoveY = 0;
+let scaleX = 1;
 
 const minScaleX = 1.09;
 const maxScaleX = 1.17;
@@ -18,7 +18,7 @@ let prevThrottleY = 0;
 let insideThrottle = false;
 
 function onMouseMove(e) {
-  if (!mouseCircle) return;
+  if (!mouseCircleInner) return;
 
   const posX = e.clientX + window.scrollX;
   const posY = e.clientY + window.scrollY;
@@ -37,11 +37,11 @@ function onMouseMove(e) {
   angle = clamp(angle, -90, maxAngle);
   scaleX = clamp(scaleX, minScaleX, maxScaleX);
 
-  mouseCircle.style.display = "block";
+  mouseCircleInner.style.display = "block";
   prevMoveX = posX;
   prevMoveY = posY;
 
-  gsap.to(mouseCircle, {
+  gsap.to(mouseCircleInner, {
     translateX: posX,
     y: posY,
     duration: 0.46,
@@ -53,8 +53,9 @@ function onMouseMove(e) {
   setTimeout(() => {
     prevMoveX = posX;
     prevMoveY = posY;
+    scaleX = 1;
 
-    gsap.to(mouseCircle, {
+    gsap.to(mouseCircleInner, {
       translateX: posX,
       y: posY,
       duration: 0.65,
@@ -68,9 +69,9 @@ window.addEventListener("mousemove", onMouseMove);
 
 function calculateAngle(x1, y1, x2, y2) {
   // Calculate the angle in radians
-  const scaleX = x2 - x1;
+  const deltaX = x2 - x1;
   const deltaY = y2 - y1;
-  const radians = Math.atan2(deltaY, scaleX);
+  const radians = Math.atan2(deltaY, deltaX);
 
   // Convert radians to degrees
   const degrees = radians * (180 / Math.PI);

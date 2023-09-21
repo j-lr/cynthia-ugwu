@@ -1,6 +1,7 @@
 /* describes global styles */
 
 :root {
+  --base-background-color: #030303;
   --z-index-page1-img: 100;
   --z-index-mouse-circle: 1000;
 }
@@ -21,7 +22,7 @@ body {
   padding: 0px;
   width: 100vw;
   height: 100vh;
-  background-color: #030303;
+  background-color: var(--base-background-color);
   box-sizing: border-box;
   color: #fff;
   font-family: "General Sans Medium", sans-serif;
