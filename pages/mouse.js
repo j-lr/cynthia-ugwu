@@ -8,7 +8,7 @@ const smallCircle = {
   posYReducer: 13.5,
 };
 const bigCircle = {
-  mouseCircleSize: "1.37rem",
+  mouseCircleSize: "1.29rem",
   posXReducer: 6.5,
   posYReducer: 14,
 };
