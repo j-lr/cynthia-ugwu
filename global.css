@@ -4,6 +4,7 @@
   --base-background-color: #030303;
   --z-index-page1-img: 100;
   --z-index-mouse-circle: 1000;
+  --mouse-circle-size: 0.85rem; /* overwritten in js*/
 }
 @font-face {
   font-family: "General Sans Medium";

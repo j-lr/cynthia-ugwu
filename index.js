@@ -1,31 +1,35 @@
-"use strict";
 import { clamp } from "./utils.js";
-
-document.addEventListener("DOMContentLoaded", function () {
-  loadPages();
-});
+import prepareMouseBlendMode from "./pages/mouse.js";
 
 async function loadPages() {
   try {
     await loadPage("pages/lander.html", "div", "landerpage");
     onLanderPageLoaded();
+    prepareMouseBlendMode();
   } catch (e) {
     console.log(e);
   }
   try {
     await loadPage("pages/page1.html", "div", "page1");
+    onPage1Loaded();
+    prepareMouseBlendMode();
   } catch (e) {
     console.log(e);
   }
   try {
     await loadPage("pages/page2.html", "div", "page2");
-    onPage1Loaded();
+    prepareMouseBlendMode();
   } catch (e) {
     console.log(e);
   }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  loadPages();
+});
+
 function transformHoverImage(hoverImg) {
+  // eslint-disable-next-line no-undef
   const tl = gsap.timeline();
   tl.to(hoverImg.img, {
     translateX: hoverImg.transX,
@@ -38,7 +42,7 @@ function transformHoverImage(hoverImg) {
       rotate: hoverImg.rotateAngle,
       duration: 0.97,
     },
-    "<"
+    "<",
   );
 }
 
@@ -248,6 +252,10 @@ async function fetchHtmlPage(page) {
 }
 
 function onLanderPageLoaded() {
+  // setMouseBlendModeForClassName(".body");
+  // setMouseBlendModeForElement(landerNavbar);
+  // setMouseBlendMode(navbarMenu);
+
   const tl = gsap.timeline({
     onStart: () => {
       document.querySelector(".product").style.opacity = 1;

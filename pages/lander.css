@@ -20,6 +20,7 @@
   font-weight: 500;
   clip-path: inset(var(--landerPageClip) 0 0 0);
 }
+
 .menu {
   display: flex;
   justify-content: center;
@@ -49,19 +50,15 @@
 
 #mouseCircle {
   display: block;
-  position: absolute;
-  width: 0.85rem;
-  height: 0.85rem;
-
+  position: fixed;
+  width: var(--mouse-circle-size);
+  height: var(--mouse-circle-size);
+  left: 0;
+  top: 0;
   border-radius: 50%;
   background-color: var(--base-background-color);
   z-index: var(--z-index-mouse-circle);
-}
-
-@supports (mix-blend-mode: exclusion) {
-  #mouseCircle {
-    mix-blend-mode: exclusion;
-  }
+  pointer-events: none;
 }
 
 #mouseCircleInner {
