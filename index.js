@@ -124,6 +124,18 @@ async function loadPages() {
   } catch (e) {
     console.log(e);
   }
+  try {
+    await loadPage("pages/page3.html", "div", "page3");
+    prepareMouseBlendMode();
+  } catch (e) {
+    console.log(e);
+  }
+  try {
+    await loadPage("pages/footer.html", "div", "footer");
+    prepareMouseBlendMode();
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

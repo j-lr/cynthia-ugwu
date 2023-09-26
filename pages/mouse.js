@@ -32,14 +32,6 @@ let prevThrottleX = 0;
 let prevThrottleY = 0;
 let insideThrottle = false;
 
-function animateMouseCircleSizeChange(size) {
-  // eslint-disable-next-line no-undef
-  gsap.to(document.documentElement, {
-    "--mouse-circle-size": size,
-    duration: 0.37,
-  });
-}
-
 function getHoveredElement() {
   for (let i = 0; i < blendElements.length; i++) {
     if (blendElements[i].element.matches(":hover")) return blendElements[i];
@@ -60,7 +52,8 @@ function onMouseMove(e) {
     circle = smallCircle;
   }
 
-  animateMouseCircleSizeChange(circle.mouseCircleSize);
+  document.documentElement.style.setProperty("--mouse-circle-size", circle.mouseCircleSize);
+
   const posX = e.clientX - circle.posXReducer;
   const posY = e.clientY - circle.posYReducer;
 
