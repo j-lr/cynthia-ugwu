@@ -5,8 +5,17 @@
   height: 100vh;
   padding-top: 1vw;
 }
+
+.navbarcontainer {
+  display: flex;
+  margin-top: 0px;
+}
 .navbar {
   display: flex;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   align-items: center;
   justify-content: space-between;
   padding: 0 2.8vw;
@@ -14,6 +23,8 @@
   line-height: 24px;
   margin-bottom: 50px;
   opacity: 0;
+  background-color: var(--base-background-color);
+  z-index: var(--z-index-navbar);
 }
 
 .navbar h4 {
@@ -57,6 +68,7 @@
   top: 0;
   border-radius: 50%;
   background-color: var(--base-background-color);
+  background-color: transparent;
   z-index: var(--z-index-mouse-circle);
   pointer-events: none;
 }
@@ -76,6 +88,7 @@
 }
 
 .product {
+  /* margin-top: 25vh; */
   font-size: 10.42vw;
   margin-left: 2.5vw;
   width: fit-content;
