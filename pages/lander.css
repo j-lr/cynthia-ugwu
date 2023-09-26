@@ -9,6 +9,7 @@
 .navbarcontainer {
   display: flex;
   margin-top: 0px;
+  margin-bottom: 10vh;
 }
 .navbar {
   display: flex;
