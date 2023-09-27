@@ -1,12 +1,13 @@
 import onPage1Loaded from "./pages/page1.js";
 import prepareMouseBlendMode from "./pages/mouse.js";
+import { beginTimeComputation } from "./pages/footer.js";
 
 async function fetchHtmlPage(page) {
   const response = await fetch(page);
   if (!response.ok) {
     throw new Error(
       `Failed to fetch html page ${page} with response status code ${response.status} 
-                    and response status : ${response.statusText}`,
+                    and response status : ${response.statusText}`
     );
   }
   const pageContent = await response.text();
@@ -34,7 +35,7 @@ function onProductDesignerAnimComplete() {
       landerPageClip: "100% ",
       ease: "power2.inOut",
     },
-    "<",
+    "<"
   );
   tl.to(".footer", {
     opacity: 1,
@@ -48,7 +49,7 @@ function onProductDesignerAnimComplete() {
       "--landerPageClip": "100% ",
       ease: "power2.inOut",
     },
-    "<",
+    "<"
   );
 
   tl.from(
@@ -59,7 +60,7 @@ function onProductDesignerAnimComplete() {
       "--landerPageClip": "100% ",
       ease: "power2.inOut",
     },
-    "<",
+    "<"
   );
   tl.to(
     ".freelance",
@@ -67,7 +68,7 @@ function onProductDesignerAnimComplete() {
       opacity: 1,
       duration: 1.25,
     },
-    "<",
+    "<"
   );
 }
 async function loadPage(pageUrl, htmlElement, elementID) {
@@ -133,6 +134,7 @@ async function loadPages() {
   try {
     await loadPage("pages/footer.html", "div", "footer");
     prepareMouseBlendMode();
+    beginTimeComputation();
   } catch (e) {
     console.log(e);
   }
